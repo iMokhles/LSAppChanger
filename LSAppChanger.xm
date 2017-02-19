@@ -72,20 +72,47 @@ static void lsacInit()
 // 'Could not load NIB in bundle: 'NSBundle </Applications/AppStore.app> (not yet loaded)' with name 'LaunchScreen''
 
 // 
-// %hook SBAppView
+%hook SBAppView
+- (BOOL)_shouldLoadInterfaceFileBasedStaticContent {
+
+	NSDictionary *LSAppChangerSettings = [NSDictionary dictionaryWithContentsOfFile:[LSAppChangerHelper preferencesPath]];
+	NSNumber *isTweakEnabledNU = LSAppChangerSettings[@"isTweakEnabled"];
+    isTweakEnabled = [isTweakEnabledNU boolValue];
+    LSAC_AppId = LSAppChangerSettings[@"LSAC_AppId"];
+
+    if (isTweakEnabled) {
+    	if ([self.application.bundleIdentifier isEqualToString:LSAC_AppId]) {
+			return NO;
+		}
+		return %orig();
+   	} else {
+   		return %orig();
+    }
+	
+	
+}
 // - (id)_launchInterfaceView {
 
 // 	UIView *customView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 // 	[customView setBackgroundColor:[UIColor clearColor]];
 // 	return customView;
 // }
-// %end
+%end
 
 %hook SBApplicationController
 - (id)cameraApplication {
+	NSDictionary *LSAppChangerSettings = [NSDictionary dictionaryWithContentsOfFile:[LSAppChangerHelper preferencesPath]];
+	NSNumber *isTweakEnabledNU = LSAppChangerSettings[@"isTweakEnabled"];
+    isTweakEnabled = [isTweakEnabledNU boolValue];
+    LSAC_AppId = LSAppChangerSettings[@"LSAC_AppId"];
 
-	if (LSAC_AppId.length > 0) {
-		return [self applicationWithBundleIdentifier:LSAC_AppId];
+
+	if (isTweakEnabled) {
+		if ([LSAC_AppId isEqualToString:@"com.apple.camera"]) {
+    		return %orig();
+    	} else {
+    		return [self applicationWithBundleIdentifier:LSAC_AppId];
+    	}
 	} else {
 		return %orig();
 	}
