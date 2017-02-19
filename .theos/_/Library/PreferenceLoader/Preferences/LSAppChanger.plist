@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = LSAppChanger;
+	cell = PSLinkCell;
+	detail = LSAppChangerListController;
+	icon = LSAppChanger.png;
+	isController = 1;
+	label = LSAppChanger;
+    };
+}

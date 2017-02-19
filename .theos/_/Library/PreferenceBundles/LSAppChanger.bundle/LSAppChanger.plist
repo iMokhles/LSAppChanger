@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Enable LockScreen AppChanger Tweak</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.imokhles.lsappchanger</string>
+			<key>key</key>
+			<string>isTweakEnabled</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.imokhles.lsappchanger.preferences-changed</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Applications where you enabled FlexManager</string>
+		</dict>
+		<dict>
+			<key>ALAllowsSelection</key>
+			<true/>
+			<key>ALChangeNotification</key>
+			<string>com.imokhles.lsappchanger.preferences-changed</string>
+			<key>ALSettingsDefaultValue</key>
+			<false/>
+			<key>ALSettingsKey</key>
+			<string>LSAC_AppId</string>
+			<key>ALSettingsPath</key>
+			<string>/var/mobile/Library/Preferences/com.imokhles.lsappchanger.plist</string>
+			<key>ALSingleEnabledMode</key>
+			<true/>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>bundle</key>
+			<string>AppList</string>
+			<key>isController</key>
+			<true/>
+			<key>label</key>
+			<string>Enabled Apps</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Developer</string>
+			<key>footerText</key>
+			<string>Support me if you would like to do it ;)</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>followOnTwitter:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>Twitter.png</string>
+			<key>label</key>
+			<string>Follow @iMokhles</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>visitWebSite:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>Site.png</string>
+			<key>label</key>
+			<string>Visit iMokhles Site</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>makeDonation:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>Donate.png</string>
+			<key>label</key>
+			<string>Donate to iMokhles</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Respring to Apply Changes</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>respringButton:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>loading.png</string>
+			<key>label</key>
+			<string>Respring</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>LSAppChanger</string>
+</dict>
+</plist>

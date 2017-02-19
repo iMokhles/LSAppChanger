@@ -1,0 +1,8 @@
+Package: com.imokhles.lsappchanger
+Name: LSAppChanger
+Depends: mobilesubstrate, firmware (>= 10.0)
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome Cydia Substrate tweak!
+Author: iMokhles <mokhleshussien@aol.com>
+Section: Tweaks
